@@ -1,0 +1,8 @@
+mat-card {
+    width: 40%;
+    margin: auto;
+}
+
+::ng-deep .mat-input-underline {
+    display: none;
+}
