@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {Todo} from './models/todo.model';
 
 @Component({
     selector: 'app-root',
@@ -7,19 +8,20 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
     inputValue = '';
-    todosList: string[] = [];
+    todosList: Todo[] = [];
 
     addToList() {
-        console.log('inputValue', this.inputValue);
         const dataToSave = this.inputValue.trim();
 
         if (dataToSave.length === 0) {
             return;
         }
 
-        this.todosList.push(dataToSave);
+        this.todosList.push({
+            value: dataToSave,
+            isChecked: false
+        });
         this.inputValue = '';
-        console.log('this.todosList', this.todosList);
     }
 }
 

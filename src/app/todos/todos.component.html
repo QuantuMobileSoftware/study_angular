@@ -1,0 +1,11 @@
+<mat-card *ngFor="let todo of todosList; let i = index">
+  <mat-checkbox [(ngModel)]="todo.isChecked">
+    {{todo.value}}
+  </mat-checkbox>
+</mat-card>
+<mat-card>
+  {{getActiveCount()}} item{{getActiveCount() !== 1? 's': ''}}
+  <a mat-button>All</a>
+  <a mat-button>Active</a>
+  <a mat-button>Completed</a>
+</mat-card>
