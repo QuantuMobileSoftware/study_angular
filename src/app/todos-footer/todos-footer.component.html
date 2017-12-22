@@ -1,0 +1,7 @@
+<mat-card>
+  {{ getActiveTodoCount() }} item{{ getActiveTodoCount() % 10 == 1 ? '' : 's' }} left
+  <a mat-button="" (click)="displayMode = Mode.ALL">All</a>
+  <a mat-button="" (click)="displayMode = Mode.ACTIVE">Active</a>
+  <a mat-button="" (click)="displayMode = Mode.COMPLETED">Completed</a>
+  <a *ngIf="anyChecked()" mat-button="" class="clear-completed" (click)="removeCompleted()">Clear Completed</a>
+</mat-card>
