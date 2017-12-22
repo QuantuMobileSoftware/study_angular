@@ -8,7 +8,7 @@ import {Todo} from '../models/todo.model';
 })
 export class TodosComponent implements OnInit {
   @Input('todoList') todosList: Todo[];
-
+  dataToShow = 'all'; // active, completed
 
   ngOnInit() {
     console.log('todo-list', this.todosList);
@@ -21,5 +21,31 @@ export class TodosComponent implements OnInit {
 
     return activeTodos.length;
   }
+
+  checkDataToShow(todoStatus) {
+    let returnValue = true;
+      if ((!todoStatus && this.dataToShow === 'completed') ||
+          (todoStatus && this.dataToShow === 'active')) {
+          returnValue = false;
+      }
+
+      return returnValue;
+  }
+
+    removeTodo(index) {
+       this.todosList.splice(index, 1);
+    }
+
+    removeTodos() {
+    this.todosList = [...this.todosList.filter( toDo => {
+        return !toDo.isChecked;
+      })];
+    }
+
+    isCompletedExist() {
+      return this.todosList.filter( toDo => {
+          return toDo.isChecked;
+      }).length > 0;
+    }
 
 }
