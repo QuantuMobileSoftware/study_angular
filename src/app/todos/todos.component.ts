@@ -37,9 +37,11 @@ export class TodosComponent implements OnInit {
     }
 
     removeTodos() {
-    this.todosList = [...this.todosList.filter( toDo => {
-        return !toDo.isChecked;
-      })];
+        for (let i = this.todosList.length - 1; i >= 0; i--) {
+            if (this.todosList[i].isChecked) {
+                this.removeTodo(i);
+            }
+        }
     }
 
     isCompletedExist() {

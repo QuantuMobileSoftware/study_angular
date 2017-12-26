@@ -1,0 +1,8 @@
+<mat-checkbox [(ngModel)]="todo.isChecked" (click)="checkValue()">
+  <span (dblclick)="changeName = true">
+     <span *ngIf="!changeName">{{todo.value}}</span>
+  <input *ngIf="changeName" type="text" [(ngModel)]="todo.value" autofocus
+         (change)="changeName = false">
+  </span>
+
+</mat-checkbox>

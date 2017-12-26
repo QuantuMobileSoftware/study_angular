@@ -7,12 +7,14 @@ import {MatButtonModule, MatCardModule, MatCheckboxModule, MatInputModule} from 
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {FormsModule} from '@angular/forms';
 import { TodosComponent } from './todos/todos.component';
+import { TodoItemComponent } from './todos/todo-item/todo-item.component';
 
 
 @NgModule({
     declarations: [
         AppComponent,
-        TodosComponent
+        TodosComponent,
+        TodoItemComponent
     ],
     imports: [
         BrowserModule,
